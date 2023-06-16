@@ -28,7 +28,8 @@ function openPopUp(){
 }
 
 
-function closePopUp(){
+function closePopUp(e){
+    e.preventDefault();
     popup.classList.remove('open-popup');
     document.getElementById("overlay").style.display = "none";
 }
