@@ -1,24 +1,36 @@
-var divElement = document.createElement("Div");
-divElement.id = 'divID';
+var divElement = document.createElement("div");
 let popup = document.getElementById('popup');
+var finalizedBook = [];
 
-function Book(title, author, pages, read){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.info = function() {
-        return [title, author, pages, read]
+
+function Book(){
+        const book ={
+            title: document.getElementById('title').value,
+            author: document.getElementById('author').value,
+            pages: document.getElementById('pages').value,
+            info: function(){
+                return [title.value, author.value, pages.value]
+            }
+        }
+
+        //add if statment for check box
+        finalizedBook = book.info();
+        console.log(finalizedBook)
+        // document.forms[0].reset();
+        addBookToLibrary(finalizedBook);  
     }
-}
 
 
-function addBookToLibrary(Book){
-    var bookInfo = document.createElement('P');
-    var text = Book;
-    bookInfo.appendChild(text);
-    divElement.appendChild(bookInfo);
+function addBookToLibrary(finalizedBook){ 
+    
     document.getElementsByClassName("books-grid").appendChild(divElement);
+    var bookInfo = document.createElement('p');
+    for (i=0; i <= finalizedBook.length; i ++){
+        bookInfo.appendChild(finalizedBook[i]);
+    }
+    console.log(bookInfo);
+    var newBook = divElement.appendChild(bookInfo);
+    document.getElementsByClassName("books-grid").appendChild(newBook);
 }
 
 
@@ -28,11 +40,13 @@ function openPopUp(){
 }
 
 
-function closePopUp(e){
-    e.preventDefault();
+function closePopUp(e){ 
+    Book();
+    e.preventDefault(); //prevents form submiting without info
     popup.classList.remove('open-popup');
     document.getElementById("overlay").style.display = "none";
 }
 
 
-  
+
+

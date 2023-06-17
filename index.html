@@ -10,7 +10,7 @@
     <title>Library</title>
 </head>
 <body>
-    <div id="overlay" onclick="closePopUp()"></div>
+    <div id="overlay"></div>
     <div class="header">
         <h3>📚 library</h3>
         <button id="log-in-button">Log in</button>
@@ -21,13 +21,13 @@
             <form class="add-book-form">
                 <h4>Add new book</h4>
                 <div>
-                    <input type="text" class="form-input" placeholder="Title" aria-laberl="title" required>
+                    <input type="text" id='title' class="form-input" placeholder="Title" aria-laberl="title" required>
                 </div>
                 <div>
-                    <input type="text" class="form-input" placeholder="Author" aria-laberl="author" required>
+                    <input type="text" id='author' class="form-input" placeholder="Author" aria-laberl="author" required>
                 </div>
                 <div>
-                    <input type="number" class="form-input" placeholder="Pages" aria-laberl="pages" required>
+                    <input type="number" id='pages' class="form-input" placeholder="Pages" aria-laberl="pages" required>
                 </div>
                 <div>
                     <div class="read-question">
