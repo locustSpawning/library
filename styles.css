@@ -29,9 +29,12 @@ h3{
 /* LIBRARY CARDS */
 .main-container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-top: 20px;
     padding: 20px;
+    gap: 50px;
 }
 
 #add-book-button {
@@ -52,6 +55,19 @@ h3{
     display: grid;
     gap: 1.5rem;
     grid-template-columns: (3, 1fr);
+}
+
+.book-card{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 25px;
+    text-align: center;
 }
 
 /* POP UP */
@@ -95,7 +111,7 @@ h3{
     border: 0;
 }
 
-.add-book-form{
+#add-book-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -178,4 +194,9 @@ button {
 
 #log-in-button:hover{
     background-color: #d4d5d6;
+}
+
+p{
+    margin: 0;
+    padding: 0;
 }

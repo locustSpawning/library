@@ -18,7 +18,7 @@
     <div class="main-container">
         <button onclick="openPopUp()" id="add-book-button">+ Add book</button>
         <div class="popup" id="popup">
-            <form class="add-book-form">
+            <form id="add-book-form">
                 <h4>Add new book</h4>
                 <div>
                     <input type="text" id='title' class="form-input" placeholder="Title" aria-laberl="title" required>
@@ -39,10 +39,9 @@
             </form>
         </div>
 
-        <div class="books-grid"></div>
-        </div>
+        <div id="books-grid"></div>
     </div>
-    <div class="footer">
+    <div class="footer" id="footer">
         <p>• Copyright © 2023 Chelsea Leonhardt •</p>
     </div>
 </body>
