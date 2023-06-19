@@ -5,6 +5,16 @@
     font-size: 1.1rem;
 }
 
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 
 
 /* HEADER */
@@ -26,7 +36,7 @@ h3{
 
 
 
-/* LIBRARY CARDS */
+/* BOOK CARDS */
 .main-container{
     display: flex;
     flex-direction: column;
@@ -67,6 +77,7 @@ h3{
     gap: 20px;
     font-size: 25px;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* POP UP */
@@ -173,6 +184,7 @@ h4 {
 
 html {
     height: 100%;
+    position: relative;
 }
 
 body {
@@ -183,6 +195,8 @@ body {
     overflow: auto;
     display: flex;
     flex-direction: column;
+    font-weight: 500;
+    word-wrap: break-word;
 }
 
 button {
@@ -209,4 +223,18 @@ p{
 .remove {
     font-weight: 800;
     min-width: 269px;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1000px){
+    #books-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #books-grid{
+        grid-template-columns: 1fr;
+    }
 }
