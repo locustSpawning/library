@@ -31,6 +31,8 @@ function Book(){
 
 function addBookToLibrary(finalizedBook) {
     let div = document.createElement('div');
+    let btn1 = document.createElement('button');
+    let btn2 = document.createElement('button');
     for (let i=0; i < finalizedBook.length; i++){
         let p = document.createElement('p')
         if (i==0){
@@ -47,7 +49,18 @@ function addBookToLibrary(finalizedBook) {
         }
     }
     div.setAttribute('class', 'book-card');
+    div.appendChild(btn2);
+    btn2.textContent = "Remove";
+    btn2.setAttribute('class', 'remove');
+    btn2.addEventListener('click', removeBook);
     booksGrid.append(div);   
+}
+
+function removeBook(e){
+    let bookCard = e.target.closest('.book-card');
+    if (bookCard){
+        bookCard.remove();
+    }
 }
 
 
@@ -65,7 +78,5 @@ function closePopUp(e){
     document.forms[0].reset();
     e.preventDefault(); //prevents form submiting without info
 }
-
-
 
 
