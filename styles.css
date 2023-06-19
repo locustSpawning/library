@@ -152,18 +152,26 @@ h4 {
     width: 25px;
     height: 25px;
     border-radius: 2px;
-    accent-color: #86db9d;
+    accent-color: #91edaa;
 }
 
-#submit-button {
+#submit-button, .read  {
     min-width: 269px;
-    background-color: #86db9d;
+    background-color: #91edaa;
 }
 
-#submit-button:hover {
-    background-color: #72c287;
+#submit-button:hover, .read:hover  {
+    background-color: #71c97d;
 }
 
+.not-read {
+    min-width: 269px;
+    background-color: #e67a8f;
+}
+
+.not-read:hover  {
+    background-color: #d45959;
+}
 
 
 /* FOOTER */
@@ -203,6 +211,7 @@ button {
     border: none;
     min-height: 45px;
     transition: all .1s ease;
+    font-weight: 800;
 }
 
 #log-in-button{
@@ -220,8 +229,7 @@ p{
     font-weight: 800;
 }
 
-.remove {
-    font-weight: 800;
+.remove, .read {
     min-width: 269px;
 }
 

@@ -3,8 +3,10 @@ var finalizedBook = [];
 var booksGrid;
 var popup;
 var bookForm;
+var checkbox;
 
 window.addEventListener("load", (event) => {
+    checkbox = document.getElementById('check-box');
     booksGrid= document.getElementById('books-grid');
     popup = document.getElementById('popup');
     bookForm = document.getElementById('add-book-form')
@@ -48,6 +50,20 @@ function addBookToLibrary(finalizedBook) {
             div.appendChild(p);
         }
     }
+    if(checkbox.checked){
+        div.appendChild(btn1);
+        btn1.textContent = "Read";
+        btn1.setAttribute('class', 'read');
+        btn1.setAttribute('id', 'btn1');
+        btn1.addEventListener('click', readbook);
+        }
+        else {
+        div.appendChild(btn1);
+        btn1.textContent = "Not read";
+        btn1.setAttribute('class', 'not-read');
+        btn1.setAttribute('id', 'btn1');
+        btn1.addEventListener('click', readbook);
+        }
     div.setAttribute('class', 'book-card');
     div.appendChild(btn2);
     btn2.textContent = "Remove";
@@ -55,11 +71,24 @@ function addBookToLibrary(finalizedBook) {
     btn2.addEventListener('click', removeBook);
     booksGrid.append(div);   
 }
-
 function removeBook(e){
     let bookCard = e.target.closest('.book-card');
     if (bookCard){
         bookCard.remove();
+    }
+}
+
+function readbook(e){
+    let btn1 =  e.target.closest('button');
+    if(btn1.textContent === 'Read'){
+        btn1.textContent = "Not read";
+        btn1.setAttribute('class', 'not-read');
+        btn1.addEventListener('click', readbook);
+    }
+    else {
+        btn1.textContent = "Read";
+        btn1.setAttribute('class', 'read');
+        btn1.addEventListener('click', readbook);
     }
 }
 
