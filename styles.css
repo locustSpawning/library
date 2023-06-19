@@ -51,16 +51,15 @@ h3{
     background-color: #d4d5d6;
 }
 
-.books-grid {
+#books-grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: (3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .book-card{
     background-color: white;
-    width: 300px;
-    height: 300px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,10 +160,9 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 4rem;
     margin-top: auto;
+    height: 4rem;
     font-size: 1rem;
-    position:absolute;
     bottom:0;
     width:100%;
     height:60px;   /* Height of the footer */  
@@ -173,12 +171,18 @@ h4 {
 
 /* GENERAL STYLING */
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #e6e7e8;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 100%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
