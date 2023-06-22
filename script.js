@@ -4,34 +4,54 @@ var booksGrid;
 var popup;
 var bookForm;
 var checkbox;
+var submit;
+var addBook;
+var title;
+var author;
+var pages;
 
 window.addEventListener("load", (event) => {
     checkbox = document.getElementById('check-box');
     booksGrid= document.getElementById('books-grid');
     popup = document.getElementById('popup');
-    bookForm = document.getElementById('add-book-form')
+    bookForm = document.getElementById('add-book-form');
+    submit = document.getElementById('submit-button');
+    submit.addEventListener('click', closePopUp)
+    addBook = document.getElementById('add-book-button');
+    addBook.addEventListener('click', openPopUp)
     bookForm.addEventListener('submit', function(e){
         e.preventDefault();
     })
 });
 
-function Book(){
-    const book ={
-        title: document.getElementById('title').value,
-        author: document.getElementById('author').value,
-        pages: document.getElementById('pages').value,
-        info: function(){
-            return [title.value, author.value, pages.value]
-        }
+// function Book(){
+//     const book ={
+//         title: document.getElementById('title').value,
+//         author: document.getElementById('author').value,
+//         pages: document.getElementById('pages').value,
+//         info: function(){
+//             return [title.value, author.value, pages.value]
+//         }
+//     }
+//     //add if statment for check box
+//     finalizedBook = book.info();
+//     console.log(finalizedBook)
+//     addBookToLibrary(finalizedBook);  
+// }
+
+class Book{
+    constructor (title, author, pages){
+        this.title = title
+        this.author = author
+        this.pages = pages
     }
-    //add if statment for check box
-    finalizedBook = book.info();
-    console.log(finalizedBook)
-    addBookToLibrary(finalizedBook);  
+    info() {return [title, author, pages];}
 }
 
 
-function addBookToLibrary(finalizedBook) {
+
+function addBookToLibrary(book) {
+    let finalizedBook = book.info();
     let div = document.createElement('div');
     let btn1 = document.createElement('button');
     let btn2 = document.createElement('button');
@@ -100,9 +120,13 @@ function openPopUp(){
 
 function closePopUp(e){
     if (bookForm.checkValidity()) {
-        Book();
         popup.classList.remove('open-popup');
         document.getElementById('overlay').style.display = 'none';
+        title = document.getElementById('title').value,
+        author = document.getElementById('author').value,
+        pages = document.getElementById('pages').value;
+        let book  = new Book(title, author, pages);
+        addBookToLibrary(book);
     }
     document.forms[0].reset();
     e.preventDefault(); //prevents form submiting without info
